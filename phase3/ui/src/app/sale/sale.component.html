@@ -1,0 +1,44 @@
+<p>Add Sale</p>
+<form [formGroup]="customerSearchForm">
+    <mat-form-field>
+        <mat-label>ID</mat-label>
+        <input matNativeControl placeholder="ID" formControlName="id"/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Phonenumber</mat-label>
+        <input matNativeControl placeholder="Phonenumber" formControlName="phone"/>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matNativeControl placeholder="Firstname/Lastname" formControlName="name"/>
+    </mat-form-field>
+    <button mat-button (click)="searchCustomer()">Search</button>
+    <button mat-button>Add Customer</button>
+</form>
+
+<mat-selection-list [multiple]="false" (selectionChange)="onSelectCustomer(customers.selectedOptions.selected)" #customers>
+    <!-- @for (customer of customerSearchData; track customer) { -->
+      <mat-list-option *ngFor="let customer of customerSearchData;" [value]="customer">{{customer['id']}} {{customer['contact_name']}} {{customer['phonenumber']}} {{customer['email']}}</mat-list-option>
+    <!-- } -->
+</mat-selection-list>
+
+<section>
+<form [formGroup]="addSaleForm">
+    <mat-form-field class="example-full-width">
+        <mat-label>Buyer</mat-label>
+        <input matNativeControl placeholder="Buyer" formControlName="buyer" />
+    </mat-form-field>
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>VIN</mat-label>
+        <input matNativeControl placeholder="VIN"  formControlName="vin" />
+    </mat-form-field> -->
+    <mat-form-field class="example-full-width">
+        <mat-label>Date</mat-label>
+        <input matNativeControl formControlName="date" type="date"/>
+    </mat-form-field>
+    <button mat-button color="primary" (click)="save()">Save</button>   
+</form>
+
+
+
+</section>

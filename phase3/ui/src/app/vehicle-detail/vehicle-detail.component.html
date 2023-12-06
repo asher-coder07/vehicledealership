@@ -1,0 +1,26 @@
+<p>vehicle-detail works!</p>
+<p>{{ vin }} replace me!</p>
+
+
+<mat-card *ngIf="isClerkOrOwner">
+    <mat-card-title>Clerk section (if owner or clerk)</mat-card-title>
+    <mat-card-content>
+        <p>clerk section</p>
+        <button mat-raised-button (click)="addPartOrder()">Click me to add part order</button>
+    </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="isManagerOrOwner">
+    <mat-card-title>Manager section (if owner or manager)</mat-card-title>
+    <mat-card-content>
+        <p>manager section</p>
+    </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="isSalesOrOwner">
+    <mat-card-title>SalesPeople section (if owner or sales)</mat-card-title>
+    <mat-card-content>
+        <p>sales section</p>
+        <button mat-raised-button (click)="sellVehicle()">Click me to sell the car</button>
+    </mat-card-content>
+</mat-card>

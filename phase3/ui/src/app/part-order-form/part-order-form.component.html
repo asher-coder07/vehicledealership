@@ -1,0 +1,50 @@
+<section>
+    <form [formGroup]="addPartOrderForm">
+        <mat-form-field>
+            <mat-label>Vendor</mat-label>
+            <input matNativeControl placeholder="Vendor" formControlName="vendor" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Total Cost</mat-label>
+            <input matNativeControl type="number" readonly placeholder="Total Cost" formControlName="total_cost" />
+        </mat-form-field>
+        <section>
+            <li *ngFor="let part of partsAdded">
+                <span>{{part.part_number}}</span>
+            </li>
+        </section>
+        <mat-card-actions>
+            <button mat-button (click)="showAddPartForm()">Add Parts</button>
+            <button mat-button (click)="savePartOrder()">Save Order</button>
+        </mat-card-actions>
+        
+    </form>
+</section>
+<section *ngIf="showAddPartFormBool">
+    <form [formGroup]="addPartForm">
+        <mat-form-field>
+            <mat-label>Part Number</mat-label>
+            <input matNativeControl placeholder="Part #" formControlName="part_number" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <input matNativeControl placeholder="Description" formControlName="description" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Cost</mat-label>
+            <input matNativeControl type="number" placeholder="Cost" formControlName="cost" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Quantity</mat-label>
+            <input matNativeControl type="number" placeholder="Quantity" formControlName="quantity" />
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select matNativeControl default="ordered" formControlName="status">
+                <mat-option *ngFor="let part of partStatus" [value]="part">{{part}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <button mat-button (click)="savePart()">Add</button>
+    </form>
+</section>

@@ -1,0 +1,15 @@
+<form [formGroup]="loginForm">
+    <mat-form-field>
+        <mat-label>Username</mat-label>
+        <input matNativeControl placeholder="Username" formControlName="username">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matNativeControl placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+    <button mat-button color="primary" (click)="login()">Log In</button>
+</form>
+
+
+<p *ngIf="!!loginError" class="login-error">{{ loginError }}</p>
