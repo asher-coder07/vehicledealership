@@ -1,4 +1,4 @@
-# cs6400-2023-03-Team085
+# Vehicle Dealership management system
 
 Team members:
 * Jennifer Coleman (jcoleman94@gatech.edu)
